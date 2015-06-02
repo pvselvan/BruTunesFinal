@@ -1,0 +1,15 @@
+<%= form_for([@album, @song]) do |f| %>
+ 
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :time %> in seconds<br>
+    <%= f.text_field :time %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

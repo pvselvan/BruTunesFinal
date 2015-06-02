@@ -1,0 +1,34 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+</head>
+
+<style>
+
+h1 {
+	color: rgb(51, 204, 255);
+	font-family: 'Lobster Two', cursive;
+	font-size: 36px;
+}
+
+h2 {
+	font-family: 'Lobster Two', cursive;
+	font-size: 24px;	
+}
+
+p {
+	font-family: 'Cabin', sans-serif;
+}
+
+</style>
+
+<h1><strong><%= @song.name %></strong></h1>
+
+<h2>Length (in seconds): <%= @song.time %></h2>
+
+<strong > Likes: <%=@song.likes%> <%=link_to image_tag("http://us-cms.jotservers.com/uploads/help/document/joey/88_facebook_like_button_big.jpeg", size: "80x40"), like_song_path(@song) %> </strong>
+
+<p><%= link_to 'Edit', edit_album_song_path(@song.album, @song) %> | <%= link_to 'Destroy', song_path(@song),
+			    method: :delete, data:{ confirm: "Seriously?" } %></p>
+
+<p> <%= link_to 'Home', welcome_index_path %> | <%= link_to 'All songs', songs_path %> </p>

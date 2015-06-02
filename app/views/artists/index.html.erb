@@ -1,0 +1,50 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+</head>
+
+<style>
+
+h1 {
+	color: rgb(51, 204, 255);
+	font-family: 'Lobster Two', cursive;
+	font-size: 36px;
+	text-align: center
+}
+
+h2 {
+	font-family: 'Cabin', sans-serif;
+	font-size: 20px;
+	text-align: center
+}
+
+div {
+	background: rgba(0, 51, 204, .5);
+	border-radius: 10px;
+	padding: 10px 0px 0px 10px;
+	font-family: 'Cabin', sans-serif;
+}
+
+p {
+	font-family: 'Cabin', sans-serif;
+	color: white;
+}
+
+</style>
+
+<h1>All Artists</h1>
+<h2> <%= link_to 'Home', welcome_index_path %> </h2>
+	
+<p> <%= link_to 'Add an artist', new_artist_path %> </p>
+<% @artists.each do |artist| %>
+	
+	<div>
+		<strong><%= link_to artist.name, artist_path(artist) %></strong>
+		<p> <%= artist.bio %></p>
+		<p><%= link_to 'Edit', edit_artist_path(artist) %> <%= link_to 'Destroy', artist_path(artist),
+			    method: :delete, data:{ confirm: "Seriously?" } %></p>
+	</div>
+
+<% end %>
+
+

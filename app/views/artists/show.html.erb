@@ -1,0 +1,39 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+</head>
+
+<style>
+
+h1 {
+	color: rgb(51, 204, 255);
+	font-family: 'Lobster Two', cursive;
+	font-size: 36px;
+}
+
+h2 {
+	font-family: 'Lobster Two', cursive;
+	font-size: 24px;	
+}
+
+p {
+	font-family: 'Cabin', sans-serif;
+}
+
+</style>
+
+<h1><%= @artist.name %></h1>
+
+<p><%= @artist.bio %></p>
+
+<h2>Albums:</h2>
+<p>
+<%= render @artist.albums %>
+</p>
+<br>
+<br>
+<strong > Likes: <%=@artist.likes%> <%=link_to image_tag("http://us-cms.jotservers.com/uploads/help/document/joey/88_facebook_like_button_big.jpeg", size: "80x40"), like_artist_path(@artist) %> </strong>
+<p><%= link_to 'Edit', edit_artist_path(@artist) %> | <%= link_to 'Destroy', artist_path(@artist),
+			    method: :delete, data:{ confirm: "Seriously?" } %> | <%= link_to 'Add album', new_artist_album_path(@artist) %></p>
+
+<p> <%= link_to 'Home', welcome_index_path %> | <%= link_to 'All Artists', artists_path %> </p>

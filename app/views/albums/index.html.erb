@@ -1,0 +1,45 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+</head>
+
+<style>
+
+h1 {
+	color: rgb(51, 204, 255);
+	font-family: 'Lobster Two', cursive;
+	font-size: 36px;
+	text-align: center
+}
+
+h2 {
+	font-family: 'Cabin', sans-serif;
+	font-size: 20px;
+	text-align: center
+}
+
+div {
+	background: rgba(0, 51, 204, .5);
+	border-radius: 10px;
+	padding: 10px 0px 0px 10px;
+	font-family: 'Cabin', sans-serif;
+}
+
+p {
+	font-family: 'Cabin', sans-serif;
+	color: white;
+}
+
+</style>
+
+<h1>All Albums</h1>
+<h2> <%= link_to 'Home', welcome_index_path %> </h2>
+
+<% @albums.each do |album| %>
+	<div>
+		<p>
+		<strong><%= link_to album.name, album_path(album)  %> </strong> <%= album.year%> 
+		</p>
+
+	</div>
+<% end %>

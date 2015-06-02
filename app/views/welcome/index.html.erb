@@ -1,0 +1,96 @@
+<head>
+	<title>BruTunes</title>
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+</head>
+<style>
+
+h1 {
+	color: rgb(51, 204, 255);
+	font-family: 'Lobster Two', cursive;
+	font-size: 75px;
+	text-align: center;
+	margin-bottom: -5px;
+}
+
+h2 {
+	color: rgb(51, 204, 255);
+	font-family: 'Lobster Two', cursive;
+	text-align: center;
+	font-size: 36px;
+}
+
+.section {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	float: left;
+	display: inline-block;
+	width: 33%;
+}
+
+.content {
+	background: rgba(0, 51, 204, .5);
+	border-radius: 10px;
+	margin: 5px;
+	padding: 10px 0px 0px 10px;
+}
+
+p {
+	font-size: 12px;
+	color: white;
+}
+
+</style>
+
+<body>
+<h1>BruTunes</h1>
+
+<div class="section">
+<h2>Top Five <%= link_to 'Artists', artists_path(@artists) %></h2>
+<% count = 0 %>
+<% @artists.size > 5 ? max = 5 : max = @artists.size %>
+<% while count < max %>
+	<% artist = @artists[count] %>
+		<div class="content">
+			<strong><%= link_to artist.name, artist_path(artist) %></strong>
+			<p>	Likes: <%=artist.likes %></p>
+			<br>
+		</div>
+	<% count += 1 %>
+<% end %>
+</div>
+
+<div class="section">
+<h2>Top Five <%= link_to 'Albums', albums_path(@albums) %></h2>
+<% count = 0 %>
+<% @albums.size > 5 ? max = 5 : max = @albums.size %>
+<% while count < max %>
+	<% album = @albums[count] %>
+	<div class="content">
+		<strong><%= link_to album.name, album_path(album)%></strong>
+		<p>	Likes: <%=album.likes %></p>
+			<br>
+	</div>
+	<% count += 1 %>
+
+<% end %>
+</div>
+
+<div class="section">
+<h2>Top Five <%= link_to 'Songs', songs_path(@songs) %></h2>
+<% count = 0 %>
+<% @songs.size > 5 ? max = 5 : max = @songs.size %>
+<% while count < max %>
+	<% song = @songs[count] %>
+	<div class="content">
+		<strong><%= link_to song.name, song_path(song)%></strong>
+		<p>	Likes: <%=song.likes %></p>
+			<br>
+	</div>
+	<% count += 1 %>
+
+<% end %>
+</div>
+</body>
+
+
